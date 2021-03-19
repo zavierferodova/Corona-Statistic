@@ -1,0 +1,446 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=PT+Sans&family=Roboto+Slab&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+@font-face{
+    font-family: 'Zavier Font';
+    src: url(../fonts/BAUHS93.ttf);
+}
+
+.developer-text {
+    font-family: 'Zavier Font';
+}
+
+.application-text {
+    font-family: 'Pacifico', cursive;
+}
+
+body {
+    background-color: #dfdfdf;
+}
+
+#loading-container {
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    background-color: white;
+    z-index: 99;
+    align-items: center;
+    justify-content: center;
+}
+
+#loading-container span {
+    display: block;
+    width: 80%;
+    text-align: center;
+}
+
+#top-nav-menu {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 3.5em;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 98;
+}
+
+#top-nav-logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 1.6em;
+    margin-left: 2%;
+    color: white;
+}
+
+#top-content::before {
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    content: '';
+    width: 100%;
+    height: 100vh;
+    background-color: white;
+    z-index: -1;
+}
+
+#top-content {
+    display: flex;
+    padding: 5%;
+    width: 100%;
+    height: 100vh;
+    background: rgb(181,220,232);
+    background: -moz-linear-gradient(69deg, rgba(181,220,232,1) 0%, rgba(253,249,249,1) 100%);
+    background: -webkit-linear-gradient(69deg, rgba(181,220,232,1) 0%, rgba(253,249,249,1) 100%);
+    background: linear-gradient(69deg, rgba(181,220,232,1) 0%, rgba(253,249,249,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b5dce8",endColorstr="#fdf9f9",GradientType=1);
+}
+
+#corona-attack-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+#corona-attack {
+    width: 300%;
+    height: 300%;
+}
+
+#top-content > .d-flex {
+    justify-content: center;
+    z-index: 10;
+}
+
+#top-content > .d-flex span {
+    display: block;
+    width: 100%;
+    text-align: right;
+    font-size: 4em;
+    font-family: 'Roboto Slab', serif;
+}
+
+#top-content > .d-flex p {
+    width: 80%;
+    margin-left: auto;
+    font-size: 1.5em;
+    text-align: right;
+    font-family: 'Raleway', sans-serif;
+}
+
+#app-information {
+    padding: 8vw;
+    height: max-content;
+    background: radial-gradient(top left, #0bd3f4, #2432db);
+    background: -moz-radial-gradient(top left, #0bd3f4, #2432db);
+    background: -webkit-radial-gradient(top left, #0bd3f4, #2432db);
+    color: white;
+    text-align: center;
+    margin-bottom: 1.5%;
+}
+
+#app-information > .application-text {
+    font-size: 2.5em;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+#app-information > .developer-text {
+    font-size: 1.25em;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.app-btn {
+    width: 17em;
+    color: white;
+    text-decoration: none;
+    margin: 1%;
+    padding: 0.5%;
+    border: 2px solid white;
+    border-radius: 3vw;
+}
+
+.app-btn:hover {
+    text-decoration: none;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    transition: 0.5s;
+}
+
+#coronaChart-container {
+    width: 30%;
+}
+
+#coronaChart-container + .container {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+}
+
+.btn-switch {
+    border-radius: 0.25vw;
+    border: 1px solid black;
+    background-color: white;
+}
+
+.btn-switch:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+#title-statistic {
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+#coronaChart-container + .container > .d-flex:nth-child(2) {
+    margin-top: 10%;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+#coronaChart-container + .container > .d-flex {
+    display: block;
+    width: 100%;
+}
+
+.keterangan-statistic {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2.5%;
+    padding: 1%;
+    width: 30%;
+    border-radius: 1vw;
+    color: white;
+}
+
+.keterangan-statistic > .title-data {
+    font-weight: bold;
+}
+
+.keterangan-statistic:nth-child(1) {
+    background-color: #fe0011;
+}
+
+.keterangan-statistic:nth-child(2) {
+    background-color: #1a79e5;
+}
+
+.keterangan-statistic:nth-child(3) {
+    background-color: #fd7202;
+}
+
+.content-container {
+    margin-bottom: 2.5%;
+    padding: 2.5%;
+    background-color: white;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    border-radius: 1vw;
+}
+
+.content-title {
+    font-size: 2.5em;
+}
+
+#coronaChartIndonesia-container {
+    width: 100%;
+    height: 30vw;
+}
+
+.search-container {
+    margin-left: auto;
+}
+
+.table-responsive {
+    border-radius: 0.5vw;
+    height: 60vh;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #ececec;
+}
+
+::-webkit-scrollbar-thumb {
+    background: grey;
+    border-radius: 5px;
+}
+
+.table thead {
+    background-color: #0656f9;
+}
+
+.table th {
+    text-align: center;
+    color: white;
+}
+
+.table td {
+    text-align: center;
+}
+
+.table tbody tr:nth-child(2n+1) {
+    background-color: #f3f3f3;
+}
+
+#recommend-action-container {
+    padding-top: 2.5%;
+    background-color: #3ba9ff;
+}
+
+#recommend-action-container span {
+    color: white;
+}
+
+#recommend-action {
+    display: flex;
+    overflow: auto;
+}
+
+.recommend-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 25%;
+    margin: 1.5%;
+}
+
+.recommend-list > .recommend-icon {
+    display: block;
+    width: 150px;
+    height: 150px;
+    padding: 25px;
+    border-radius: 50%;
+    background-color: white;
+}
+
+.recommend-icon > img {            
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.recommend-list > .recommend-text {
+    margin-top: 2%;
+    width: 280px;
+    text-align: center;
+    color: white;
+}
+
+footer {
+    background-color: #121212;
+    color: white;
+}
+
+footer .footer-content {
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+
+footer .footer-content .application-text {
+    font-size: 1.8em;
+}
+
+footer .footer-bottom {
+    border-top: 2px solid white;
+    padding-top: 1%;
+    padding-bottom: 0.25%;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+}
+
+@media only screen and (max-width: 600px) {
+    #top-nav-menu {
+        height: 11vw;
+        justify-content: center;
+        margin: 0;
+    }
+
+    #top-nav-logo {
+        font-size: 1.2em;
+    }
+
+    #top-content {
+        flex-direction: column;
+        height: 100vh;
+    }
+    
+    #top-content > .d-flex span {
+        font-size: 3em;
+        text-align: left;
+    }
+
+    #top-content > .d-flex p {
+        width: 100%;
+        margin-left: 0;
+        font-size: 1.25em;
+        text-align: left;
+    }
+
+    #app-information > .application-text {
+        font-size: 2em;
+    }
+    
+    #app-information > .developer-text {
+        font-size: 1em;
+    }
+
+    #corona-statistic-information {
+        flex-direction: column;
+    }
+    
+    #coronaChart-container {
+        display: block;
+        width: 100%;
+        height: 20em;
+    }
+    
+    #coronaChart-container + .container {
+        margin-top: 5%;
+        flex-direction: column;
+        display: flex;
+        width: 100%;
+    }
+
+    #coronaChart-container + .container > .d-flex:nth-child(2) {
+        padding: 0;
+        justify-content: center;
+    }
+
+    #coronaChart-container + .container > .d-flex:nth-child(3) {
+        margin-top: 10%;
+        padding: 0;
+        flex-direction: column;
+    }
+
+    #coronaChartIndonesia-container {
+        height: 80vw;
+    }
+
+    .keterangan-statistic {
+        width: 100%;
+        margin-left: 0%;
+    }
+
+    #title-statistic {
+        font-size: 1.65em;
+        text-align: center;
+    }
+
+    #app-information {
+        padding-top: 10vw;
+    }
+
+    #app-information > .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .content-title {
+        font-size: 1.65em;
+    }
+
+    .search-container {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    #recommend-action {
+        align-items: center;
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "name": "Corona Statistic",
+    "short_name": "Corona Statistic",
+    "description": "Corona Statistic untuk track statistik persebaran virus corona",
+    "start_url": "https://corona-statistic.herokuapp.com/",
+    "display": "standalone",
+    "background_color": "#000000",
+    "theme_color": "#666666",
+    "icons": [
+        {
+            "src": "images/icons/virus-256.png",
+            "sizes": "256x256",
+            "type": "image/png",
+            "purpose": "any maskable" 
+        },
+        {
+            "src": "images/icons/virus-128.png",
+            "sizes": "128x128",
+            "type": "image/png",
+            "purpose": "any maskable" 
+        },
+        {
+            "src": "images/icons/virus-64.png",
+            "sizes": "64x64",
+            "type": "image/png",
+            "purpose": "any maskable" 
+        },
+        {
+            "src": "images/icons/virus-32.png",
+            "sizes": "32x32",
+            "type": "image/png",
+            "purpose": "any maskable" 
+        }
+    ]
+}
