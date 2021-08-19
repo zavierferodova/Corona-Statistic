@@ -3,6 +3,7 @@ import ApiBaseUrl from '../constant/api-base-url.js'
 class CoronaData {
   /**
    * Fetch all data from api
+   * @async
    * @returns {String}
    */
   async loadData () {
@@ -27,6 +28,7 @@ class CoronaData {
 
   /**
    * Fetch summary World Coronavirus data (positive, recovered, death)
+   * @async
    * @returns {Array}
    */
   async getWorldData () {
@@ -39,6 +41,7 @@ class CoronaData {
 
   /**
    * Fetch summary Indonesia Coronavirus data (positive, recovered, death)
+   * @async
    * @returns {Object}
    */
   async getIndonesiaData () {
@@ -48,6 +51,7 @@ class CoronaData {
 
   /**
    * Fetch Indonesia province Coronavirus data
+   * @async
    * @returns {Object}
    */
   async getIndonesiaProvinceData () {
@@ -57,6 +61,7 @@ class CoronaData {
 
   /**
    * Fetch World Coronavirus data
+   * @async
    * @returns {Object}
    */
   async getWorldCountryData () {

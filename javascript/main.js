@@ -117,6 +117,7 @@ function main () {
 
   /**
    * Render application with cache data
+   * @async
    * @param {CoronaData} coronaData
    */
   const loadCacheData = async (coronaData) => {
@@ -132,6 +133,7 @@ function main () {
 
   /**
    * Render application with api data
+   * @async
    * @param {CoronaData} coronaData
    */
   const loadApiData = async (coronaData) => {
