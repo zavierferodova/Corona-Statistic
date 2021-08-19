@@ -3,12 +3,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
 
 @font-face{
-    font-family: 'Zavier Font';
+    font-family: 'BAUHS93';
     src: url(../fonts/BAUHS93.ttf);
 }
 
 .developer-text {
-    font-family: 'Zavier Font';
+    font-family: 'BAUHS93';
 }
 
 .application-text {
@@ -248,6 +248,7 @@ body {
 
 ::-webkit-scrollbar {
     width: 5px;
+    height: 5px;
 }
 
 ::-webkit-scrollbar-track {
