@@ -1,8 +1,8 @@
 {
     "name": "Corona Statistic",
     "short_name": "Corona Statistic",
-    "description": "Corona Statistic untuk track statistik persebaran virus corona",
-    "start_url": "https://corona-statistic.herokuapp.com/",
+    "description": "Coronavirus cases tracker",
+    "start_url": "/",
     "display": "standalone",
     "background_color": "#000000",
     "theme_color": "#666666",

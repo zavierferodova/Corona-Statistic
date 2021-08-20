@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 import CoronaData from './data/ApiData.js'
 import ApiCacheData from './data/ApiCacheData.js'
-// import registerServiceWorker from './worker/register-sw.js'
+import registerServiceWorker from './worker/register-sw.js'
 import { Chart, ArcElement, BarElement, BarController, DoughnutController, LinearScale, CategoryScale } from 'chart.js'
 import Lottie from 'lottie-web'
 import loadingAnimation from '../lottie/18469-stay-safe.json'
@@ -141,7 +141,9 @@ function main () {
       coronaData.indonesiaProvinceData = cacheData[4]
       coronaData.worldCountryData = cacheData[5]
       startRender(coronaData)
-    } catch (error) {}
+    } catch (error) {
+      showErrorLoadingMessage()
+    }
   }
 
   /**
@@ -165,13 +167,12 @@ function main () {
       await coronaData.loadData()
       startRender(coronaData)
     } catch (error) {
-      console.error(error)
       handleError()
     }
   }
 
   const coronaData = new CoronaData()
-  // registerServiceWorker()
+  registerServiceWorker()
   showLoadingAnimation()
   loadApiData(coronaData)
 }

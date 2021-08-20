@@ -32,6 +32,8 @@ function ApiCacheData () {
       Promise.all(jsonProm).then(jsonArr => {
         resolve(jsonArr)
       })
+    }).catch(error => {
+      reject(error)
     })
   })
 }
