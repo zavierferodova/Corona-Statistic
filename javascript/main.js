@@ -2,9 +2,22 @@
 import CoronaData from './data/ApiData.js'
 import ApiCacheData from './data/ApiCacheData.js'
 // import registerServiceWorker from './worker/register-sw.js'
+import { Chart, ArcElement, BarElement, BarController, DoughnutController, LinearScale, CategoryScale } from 'chart.js'
+import Lottie from 'lottie-web'
+import loadingAnimation from '../lottie/18469-stay-safe.json'
+import coronaAttackAnimation from '../lottie/18795-coronavirus.json'
 import './components/LocationTable.js'
-import '../libraries/chart.js/Chart.min.js'
-import '../libraries/lottie-web/lottie.min.js'
+import style from '../css/style.css'
+
+style.use()
+Chart.register(
+  ArcElement,
+  BarElement,
+  BarController,
+  DoughnutController,
+  LinearScale,
+  CategoryScale
+)
 
 // Start application
 document.addEventListener('DOMContentLoaded', main)
@@ -69,12 +82,12 @@ function main () {
    * Show core page to screen
    */
   const showCorePage = () => {
-    bodymovin.loadAnimation({
+    Lottie.loadAnimation({
       container: document.querySelector('#corona-attack'),
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: 'lottie/18795-coronavirus.json'
+      animationData: coronaAttackAnimation
     })
 
     window.scroll(0, 0)
@@ -86,12 +99,12 @@ function main () {
    * Show loading animation to screen
    */
   const showLoadingAnimation = () => {
-    bodymovin.loadAnimation({
+    Lottie.loadAnimation({
       container: document.querySelector('#loading-animation'),
       renderer: 'svg',
       loop: true,
       autoplay: true,
-      path: 'lottie/18469-stay-safe.json'
+      animationData: loadingAnimation
     })
 
     loadingContainer.style.display = 'flex'

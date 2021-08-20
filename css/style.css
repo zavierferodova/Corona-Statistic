@@ -4,7 +4,7 @@
 
 @font-face{
     font-family: 'BAUHS93';
-    src: url(../fonts/BAUHS93.ttf);
+    src: url(../public/fonts/BAUHS93.ttf);
 }
 
 .developer-text {
@@ -13,10 +13,6 @@
 
 .application-text {
     font-family: 'Pacifico', cursive;
-}
-
-body {
-    background-color: #dfdfdf;
 }
 
 #loading-container {
@@ -83,6 +79,10 @@ body {
     background: -webkit-linear-gradient(69deg, rgba(181,220,232,1) 0%, rgba(253,249,249,1) 100%);
     background: linear-gradient(69deg, rgba(181,220,232,1) 0%, rgba(253,249,249,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b5dce8",endColorstr="#fdf9f9",GradientType=1);
+}
+
+#core-page {
+    background-color: #dfdfdf;
 }
 
 #corona-attack-container {
@@ -242,8 +242,9 @@ body {
 }
 
 .table-responsive {
+    display: block;
     border-radius: 0.5vw;
-    height: 60vh;
+    max-height: 60vh;
 }
 
 ::-webkit-scrollbar {
@@ -265,6 +266,7 @@ body {
 }
 
 .table th {
+    padding: 0.5rem;
     text-align: center;
     color: white;
 }
@@ -443,5 +445,9 @@ footer .footer-bottom {
     #recommend-action {
         align-items: center;
         flex-direction: column;
+    }
+
+    footer .footer-bottom {
+        text-align: center;
     }
 }
