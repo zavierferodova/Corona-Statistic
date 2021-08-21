@@ -4,10 +4,9 @@
   "description": "Web Coronavirus Case Tracker",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config webpack.server.js && node server/index.js",
+    "start": "webpack --config webpack.prod.js && node server/index.js",
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "build-to-server": "webpack --config webpack.server.js",
     "server-dev": "nodemon server/index.js"
   },
   "repository": {

@@ -1,7 +1,7 @@
 const express = require('express')
-const path = require('path')
 const cors = require('cors')
 const routes = require('./routes/routes')
+const clientPath = require('./constant/client-path')
 
 // Call main function to initialize application
 main()
@@ -13,7 +13,7 @@ function main () {
   const app = express()
   const port = process.env.PORT || 3000
   app.use(cors())
-  app.use(express.static(path.join(__dirname, 'build')))
+  app.use(express.static(clientPath))
   app.listen(port, () => startApplication(app, port))
 }
 

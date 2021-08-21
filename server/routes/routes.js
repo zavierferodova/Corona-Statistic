@@ -1,5 +1,6 @@
 const path = require('path')
 const axios = require('axios')
+const clientPath = require('../constant/client-path')
 const ApiEndpoint = require('../constant/api-endpoint')
 const writeStringToFile = require('../utils/write-string-to-file')
 const { sendJSONFile } = require('../utils/send-response')
@@ -10,7 +11,7 @@ const { sendJSONFile } = require('../utils/send-response')
  */
 function routes (app) {
   app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'build/index.html'))
+    res.sendFile(path.join(clientPath, 'index.html'))
   })
 
   apiRoutes(app)
