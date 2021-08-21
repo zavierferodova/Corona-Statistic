@@ -7,8 +7,11 @@ Complete Front-End and Back-End, Progressive Web Apps World and Indonesia Corona
 1. Development : `npm run start-dev`
 2. Production : `npm run start`
 
-**App production build** : `npm run build`
+**App production build** 
+- `npm run build`
 
-**Build app to server** : `npm run build-to-server`
+**Build app to server** 
+- `npm run build-to-server`
 
-**Server back-end development** : `npm run server-dev`
+**Server back-end development** 
+- `npm run server-dev`
