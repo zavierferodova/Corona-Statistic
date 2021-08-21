@@ -7,6 +7,7 @@ import { cleanupOutdatedCaches, precacheAndRoute } from 'workbox-precaching'
 import { NetworkFirst } from 'workbox-strategies'
 import { CacheableResponsePlugin } from 'workbox-cacheable-response'
 import apiBaseUrl from '../constant/api-base-url'
+import { randomStringAlphaNumber } from '../utils/string-util'
 
 clientsClaim()
 cleanupOutdatedCaches()
@@ -21,6 +22,9 @@ self.addEventListener('install', event => {
 })
 
 precacheAndRoute(self.__WB_MANIFEST || [])
+precacheAndRoute([
+  { url: '/', revision: randomStringAlphaNumber(20) }
+])
 
 registerRoute(
   ({ url }) => url.href.includes(apiBaseUrl),

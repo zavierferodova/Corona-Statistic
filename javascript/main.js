@@ -9,7 +9,6 @@ import coronaAttackAnimation from '../lottie/18795-coronavirus.json'
 import './components/LocationTable.js'
 import style from '../css/style.css'
 
-style.use()
 Chart.register(
   ArcElement,
   BarElement,
@@ -19,62 +18,13 @@ Chart.register(
   CategoryScale
 )
 
-const ctx = document.getElementById('coronaChart').getContext('2d')
-const ctx2 = document.getElementById('coronaChartIndonesia').getContext('2d')
-const doughnutCasesChart = new Chart(ctx, {
-  type: 'doughnut',
-  data: {
-    labels: ['Positif', 'Sembuh', 'Meninggal'],
-    datasets: [{
-      label: 'Corona ',
-      data: [1, 1, 1],
-      backgroundColor: [
-        '#ff0d00',
-        '#0095ff',
-        '#ffa000'
-      ],
-      borderColor: [
-        'white',
-        'white',
-        'white'
-      ]
-    }]
-  },
-  options: {
-    maintainAspectRatio: false,
-    responsive: true
-  }
-})
-const barChartIndonesiaProvince = new Chart(ctx2, {
-  type: 'bar',
-  data: {
-    labels: ['Positif', 'Sembuh', 'Meninggal'],
-    datasets: [{
-      label: 'Jumlah kasus',
-      data: [],
-      backgroundColor: '#0069ff'
-    }]
-  },
-  options: {
-    scales: {
-      yAxes: [{
-        ticks: {
-          beginAtZero: true
-        }
-      }]
-    },
-    maintainAspectRatio: false,
-    responsive: true
-  }
-})
-
-// Start application
-document.addEventListener('DOMContentLoaded', main)
+let doughnutCasesChart = null
+let barChartIndonesiaProvince = null
 
 /**
  * Main of code
  */
-function main () {
+async function App () {
   const corePage = document.querySelector('#core-page')
   const loadingContainer = document.querySelector('#loading-container')
 
@@ -124,8 +74,8 @@ function main () {
    * @param {CoronaData} coronaData
    */
   const startRender = (coronaData) => {
-    showCorePage()
     renderData(coronaData)
+    showCorePage()
   }
 
   /**
@@ -172,6 +122,7 @@ function main () {
   }
 
   const coronaData = new CoronaData()
+  await style.use()
   registerServiceWorker()
   showLoadingAnimation()
   loadApiData(coronaData)
@@ -208,12 +159,51 @@ const renderData = (coronaData) => {
 }
 
 /**
+ * Get Chart instance doughnut
+ * @return {Chart}
+ */
+function getDoughnutCasesChart () {
+  const ctx = document.getElementById('coronaChart').getContext('2d')
+  if (doughnutCasesChart !== null) {
+    doughnutCasesChart.destroy()
+  }
+
+  doughnutCasesChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Positif', 'Sembuh', 'Meninggal'],
+      datasets: [{
+        label: 'Corona ',
+        data: [1, 1, 1],
+        backgroundColor: [
+          '#ff0d00',
+          '#0095ff',
+          '#ffa000'
+        ],
+        borderColor: [
+          'white',
+          'white',
+          'white'
+        ]
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      responsive: true
+    }
+  })
+
+  return doughnutCasesChart
+}
+
+/**
  * Render doughnut chart coronavirus cases
  * @param {String|Number} positive
  * @param {String|Number} recovered
  * @param {String|Number} death
  */
 function renderCasesChart (positive, recovered, death) {
+  const doughnutCasesChart = getDoughnutCasesChart()
   doughnutCasesChart.data.datasets[0].data = [
     positive,
     recovered,
@@ -224,10 +214,47 @@ function renderCasesChart (positive, recovered, death) {
 }
 
 /**
+ * Get Chart instance bar
+ * @return {Chart}
+ */
+function getBarIndonesiaProvinceChart () {
+  const ctx2 = document.getElementById('coronaChartIndonesia').getContext('2d')
+  if (barChartIndonesiaProvince !== null) {
+    barChartIndonesiaProvince.destroy()
+  }
+
+  barChartIndonesiaProvince = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: ['Positif', 'Sembuh', 'Meninggal'],
+      datasets: [{
+        label: 'Jumlah kasus',
+        data: [],
+        backgroundColor: '#0069ff'
+      }]
+    },
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      },
+      maintainAspectRatio: false,
+      responsive: true
+    }
+  })
+
+  return barChartIndonesiaProvince
+}
+
+/**
  * Render bar chart Indonesia province coronavirus cases statistic
  * @param {Array} indonesiaProvinceData
  */
 function renderIndonesiaProvinceChart (indonesiaProvinceData) {
+  const barChartIndonesiaProvince = getBarIndonesiaProvinceChart()
   const listprovinsi = []
   const listvalueprovinsi = []
   indonesiaProvinceData.forEach(object => {
@@ -547,3 +574,5 @@ function performScrollToInformationElement () {
 function numberWithIndonesianCommas (string) {
   return string.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.')
 }
+
+export default App

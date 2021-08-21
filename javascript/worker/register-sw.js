@@ -27,7 +27,8 @@ async function performRegister () {
     await navigator.serviceWorker.register(serviceWorkerURL)
     await serviceWorkerIntegrity.update(serviceWorkerURL)
 
-    if (!isIntegritySame && oldServiceWorkerMD5 !== null) { // If integrity not same service worker was updated
+    // If integrity not same service worker was updated
+    if (!isIntegritySame && oldServiceWorkerMD5 !== null) {
       alert('New update is available. Click OK to apply !')
       window.location.reload()
     } else {
