@@ -74,8 +74,8 @@ async function App () {
    * @param {CoronaData} coronaData
    */
   const startRender = (coronaData) => {
-    renderData(coronaData)
     showCorePage()
+    renderData(coronaData)
   }
 
   /**
