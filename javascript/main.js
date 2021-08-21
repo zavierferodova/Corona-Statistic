@@ -86,10 +86,10 @@ async function App () {
   const loadCacheData = async (coronaData) => {
     try {
       const cacheData = await ApiCacheData()
-      coronaData.worldData = [cacheData[0], cacheData[1], cacheData[2]]
-      coronaData.indonesiaData = cacheData[3]
-      coronaData.indonesiaProvinceData = cacheData[4]
-      coronaData.worldCountryData = cacheData[5]
+      coronaData.worldData = cacheData[0]
+      coronaData.worldCountryData = cacheData[1]
+      coronaData.indonesiaData = cacheData[2]
+      coronaData.indonesiaProvinceData = cacheData[3]
       startRender(coronaData)
     } catch (error) {
       showErrorLoadingMessage()

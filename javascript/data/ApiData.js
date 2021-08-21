@@ -1,4 +1,4 @@
-import ApiBaseUrl from '../constant/api-base-url.js'
+import ApiEndpoint from '../constant/api-endpoint'
 
 class CoronaData {
   /**
@@ -7,8 +7,6 @@ class CoronaData {
    * @returns {String}
    */
   async loadData () {
-    this.baseurl = ApiBaseUrl
-
     try {
       const worldData = await this.getWorldData()
       const indonesiaData = await this.getIndonesiaData()
@@ -32,7 +30,7 @@ class CoronaData {
    * @returns {Array}
    */
   async getWorldData () {
-    const response = await fetch(`${this.baseurl}/world`)
+    const response = await fetch(ApiEndpoint.world)
     return response.json()
   }
 
@@ -42,7 +40,7 @@ class CoronaData {
    * @returns {Object}
    */
   async getWorldCountryData () {
-    const response = await fetch(`${this.baseurl}/world/country`)
+    const response = await fetch(ApiEndpoint.worldCountry)
     return response.json()
   }
 
@@ -52,7 +50,7 @@ class CoronaData {
    * @returns {Object}
    */
   async getIndonesiaData () {
-    const response = await fetch(`${this.baseurl}/indonesia`)
+    const response = await fetch(ApiEndpoint.indonesia)
     return response.json()
   }
 
@@ -62,7 +60,7 @@ class CoronaData {
    * @returns {Object}
    */
   async getIndonesiaProvinceData () {
-    const response = await fetch(`${this.baseurl}/indonesia/province`)
+    const response = await fetch(ApiEndpoint.indonesiaProvince)
     return response.json()
   }
 }

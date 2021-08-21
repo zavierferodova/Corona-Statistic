@@ -1,4 +1,4 @@
-import ApiBaseUrl from '../constant/api-base-url.js'
+import ApiEndpoint from '../constant/api-endpoint'
 
 /**
  * Get api cache data
@@ -7,34 +7,19 @@ import ApiBaseUrl from '../constant/api-base-url.js'
  */
 function ApiCacheData () {
   return new Promise((resolve, reject) => {
-    const baseurl = ApiBaseUrl
-    const urlReq = [
-      caches.match(`${baseurl}/positif/`),
-      caches.match(`${baseurl}/sembuh/`),
-      caches.match(`${baseurl}/meninggal/`),
-      caches.match(`${baseurl}/indonesia/`),
-      caches.match(`${baseurl}/indonesia/provinsi/`),
-      caches.match(`${baseurl}`)
+    const urlRequest = [
+      caches.match(ApiEndpoint.world),
+      caches.match(ApiEndpoint.worldCountry),
+      caches.match(ApiEndpoint.indonesia),
+      caches.match(ApiEndpoint.indonesiaProvince)
     ]
 
-    Promise.all(urlReq).then(response => {
-      const jsonProm = [
-        response[0].json(),
-        response[1].json(),
-        response[2].json(),
-        response[3].json(),
-        response[4].json(),
-        response[5].json()
-      ]
-
-      return jsonProm
-    }).then(jsonProm => {
-      Promise.all(jsonProm).then(jsonArr => {
-        resolve(jsonArr)
+    Promise.all(urlRequest)
+      .then(responses => responses.map(async data => await data.json()))
+      .then(cacheData => resolve(cacheData))
+      .catch(error => {
+        reject(error)
       })
-    }).catch(error => {
-      reject(error)
-    })
   })
 }
 

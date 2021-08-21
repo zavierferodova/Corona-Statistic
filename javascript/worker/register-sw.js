@@ -1,5 +1,6 @@
 import { openDB } from 'idb'
 import CryptoJS from 'crypto-js'
+import { Workbox } from 'workbox-window'
 
 /**
  * Exported function to dispatch register service worker
@@ -20,20 +21,20 @@ function registerServiceWorker () {
 async function performRegister () {
   try {
     const serviceWorkerURL = '/service-worker.js'
+    const appServiceWorker = new Workbox('/service-worker.js')
     const serviceWorkerIntegrity = new ServiceWorkerIntegrity()
-    const isIntegritySame = await serviceWorkerIntegrity.checkIntegrity(serviceWorkerURL)
-    const oldServiceWorkerMD5 = await serviceWorkerIntegrity.getRegistrationHash()
 
     await navigator.serviceWorker.register(serviceWorkerURL)
     await serviceWorkerIntegrity.update(serviceWorkerURL)
 
-    // If integrity not same service worker was updated
-    if (!isIntegritySame && oldServiceWorkerMD5 !== null) {
-      alert('New update is available. Click OK to apply !')
-      window.location.reload()
-    } else {
-      console.log('Service Worker sucessfuly registered')
-    }
+    appServiceWorker.addEventListener('installed', event => {
+      if (event.isUpdate) {
+        alert('New update is available. Click OK to apply !')
+        window.location.reload()
+      }
+    })
+
+    appServiceWorker.register()
   } catch (error) {
     console.log('Failed to register service worker')
   }
@@ -85,7 +86,7 @@ class ServiceWorkerIntegrity {
       const connection = await this.open()
       const blobResponse = await fetchBlob(swUrl)
       data.hash = await calculateBlobMD5(blobResponse)
-      return connection.put(OBJECT_STORE_NAME, data)
+      connection.put(OBJECT_STORE_NAME, data)
     } catch (error) {}
   }
 
@@ -94,15 +95,19 @@ class ServiceWorkerIntegrity {
    * @return {String} old registered service worker hash
    */
   async getRegistrationHash () {
-    const { OBJECT_STORE_NAME } = this._config
-    const { id } = this._itemData
-    const connection = await this.open()
-    const data = await connection.get(OBJECT_STORE_NAME, id)
-    if (data) {
-      return String(data.hash)
-    }
+    try {
+      const { OBJECT_STORE_NAME } = this._config
+      const { id } = this._itemData
+      const connection = await this.open()
+      const data = await connection.get(OBJECT_STORE_NAME, id)
+      if (data) {
+        return String(data.hash)
+      }
 
-    return null
+      return null
+    } catch (error) {
+      return null
+    }
   }
 
   /**
@@ -111,10 +116,14 @@ class ServiceWorkerIntegrity {
    * @return {Boolean} isSameIntegrity
    */
   async checkIntegrity (swUrl) {
-    const blobResponse = await fetchBlob(swUrl)
-    const newServiceWorkerMD5 = await calculateBlobMD5(blobResponse)
-    const oldServiceWorkerMD5 = await this.getRegistrationHash()
-    return (String(newServiceWorkerMD5) === String(oldServiceWorkerMD5))
+    try {
+      const blobResponse = await fetchBlob(swUrl)
+      const newServiceWorkerMD5 = await calculateBlobMD5(blobResponse)
+      const oldServiceWorkerMD5 = await this.getRegistrationHash()
+      return (String(newServiceWorkerMD5) === String(oldServiceWorkerMD5))
+    } catch (error) {
+      return false
+    }
   }
 }
 
