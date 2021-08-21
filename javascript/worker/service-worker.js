@@ -1,3 +1,5 @@
+// askjdhkasj kjasdhkj sadj kjhsad
+
 import 'regenerator-runtime'
 import { clientsClaim, setCacheNameDetails } from 'workbox-core'
 import { registerRoute } from 'workbox-routing'

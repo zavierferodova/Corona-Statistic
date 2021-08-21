@@ -19,9 +19,6 @@ Chart.register(
   CategoryScale
 )
 
-// Start application
-document.addEventListener('DOMContentLoaded', main)
-
 const ctx = document.getElementById('coronaChart').getContext('2d')
 const ctx2 = document.getElementById('coronaChartIndonesia').getContext('2d')
 const doughnutCasesChart = new Chart(ctx, {
@@ -70,6 +67,9 @@ const barChartIndonesiaProvince = new Chart(ctx2, {
     responsive: true
   }
 })
+
+// Start application
+document.addEventListener('DOMContentLoaded', main)
 
 /**
  * Main of code

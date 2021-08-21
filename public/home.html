@@ -15,133 +15,134 @@
         <div id="loading-animation"></div>
         <span class="content-title">Loading ...</span>
     </div>
-    <div id="core-page">
-    <nav id="top-nav-menu">
-        <div id="top-nav-logo">Corona Statistic</div>
-    </nav>
-    <div id="top-content">
-        <div id="corona-attack-container">
-            <div id="corona-attack"></div>
+    <div id="core-page" style="display: none">
+        <nav id="top-nav-menu">
+            <div id="top-nav-logo">Corona Statistic</div>
+        </nav>
+        <div id="top-content">
+            <div id="corona-attack-container">
+                <div id="corona-attack"></div>
+            </div>
+            <div class="d-flex flex-column">
+                <span>Ayo !</span>
+                <p>Bersama-sama kita lawan Corona. Dengan kepedulian, kita selamatkan dunia.</p>
+            </div>
         </div>
-        <div class="d-flex flex-column">
-            <span>Ayo !</span>
-            <p>Bersama-sama kita lawan Corona. Dengan kepedulian, kita selamatkan dunia.</p>
+        <div id="app-information">
+            <h1 class="application-text">Corona Statistic</h1>
+            <span class="developer-text">ZAVIER DEVELOPER</span><br><br>
+            <div class="d-flex justify-content-center">
+                <a href="https://github.com/zavierferodova" class="app-btn">
+                    <i class="fa fa-github"></i>&nbsp;&nbsp;zavierferodova
+                </a>
+                <a href="https://www.instagram.com/zavierferodova" class="app-btn">
+                    <i class="fa fa-instagram fa-lg"></i>&nbsp;&nbsp;@zavierferodova
+                </a>
+            </div>
         </div>
-    </div>
-    <div id="app-information">
-        <h1 class="application-text">Corona Statistic</h1>
-        <span class="developer-text">ZAVIER DEVELOPER</span><br><br>
-        <div class="d-flex justify-content-center">
-            <a href="https://github.com/zavierferodova" class="app-btn">
-                <i class="fa fa-github"></i>&nbsp;&nbsp;zavierferodova
-            </a>
-            <a href="https://www.instagram.com/zavierferodova" class="app-btn">
-                <i class="fa fa-instagram fa-lg"></i>&nbsp;&nbsp;@zavierferodova
-            </a>
-        </div>
-    </div>
 
-    <div id="corona-statistic-information" class="content-container d-flex">
-        <div id="coronaChart-container">
-            <canvas id="coronaChart"></canvas>
+        <div id="corona-statistic-information" class="content-container d-flex">
+            <div id="coronaChart-container">
+                <canvas id="coronaChart"></canvas>
+            </div>
+            <div class="container">
+                <h1 id="title-statistic">World Coronavirus Data</h1>
+                <div class="d-flex">
+                    <button class="btn-switch"><i class="fa fa-globe"></i> Global Data</button> &nbsp;
+                    <button class="btn-switch"><i class="fa fa-flag"></i> Indonesia Data</button>
+                </div>
+                <div class="d-flex">
+                    <div class="keterangan-statistic">
+                        <span class="title-data">Positif</span>
+                        <span class="data-value">0</span>
+                    </div>
+                    <div class="keterangan-statistic">
+                        <span class="title-data">Sembuh</span>
+                        <span class="data-value">0</span>
+                    </div>
+                    <div class="keterangan-statistic">
+                        <span class="title-data">Meninggal</span>
+                        <span class="data-value">0</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="container">
-            <h1 id="title-statistic">World Coronavirus Data</h1>
+
+        <div class="content-container">
+            <center><h1 class="content-title">Statistik Virus Corona di Indonesia</h1><br><br>
+            <div id="coronaChartIndonesia-container">
+                <canvas id="coronaChartIndonesia"></canvas>
+            </div><br><br>
+        </div>
+
+        <div class="content-container">
+            <center><h1 class="content-title">Daftar Provinsi Terdampak Virus Corona Indonesia</h1></center><br><br>
             <div class="d-flex">
-                <button class="btn-switch"><i class="fa fa-globe"></i> Global Data</button> &nbsp;
-                <button class="btn-switch"><i class="fa fa-flag"></i> Indonesia Data</button>
-            </div>
+                <div class="search-container d-flex flex-row">
+                    <input id="indonesia-province-search" class="form-control" placeholder="Search Here" type="text"> &nbsp;
+                    <input class="btn btn-primary" type="button" value="Search">
+                </div>
+            </div><br>
+            <location-table id="indonesia-province-table"></location-table>
+        </div>
+
+        <div class="content-container">
+            <center><h1 class="content-title">Daftar Negara Terdampak Corona</h1></center><br><br>
             <div class="d-flex">
-                <div class="keterangan-statistic">
-                    <span class="title-data">Positif</span>
-                    <span class="data-value">0</span>
+                <div class="search-container d-flex flex-row">
+                    <input id="world-country-search" class="form-control" placeholder="Search Here" type="text"> &nbsp;
+                    <input class="btn btn-primary" type="button" value="Search">
                 </div>
-                <div class="keterangan-statistic">
-                    <span class="title-data">Sembuh</span>
-                    <span class="data-value">0</span>
+            </div><br>
+            <location-table id="world-country-table"></location-table>
+        </div>
+
+        <div id="recommend-action-container">
+            <center><span class="content-title">Upaya Pencegahan</span></center><br><br>
+            <div id="recommend-action">
+                <div class="recommend-list">
+                    <div class="recommend-icon">
+                        <img src="/images/hand-wash.png" alt="cuci tangan dengan sabun dan air mengalir">
+                    </div>
+                    <div class="recommend-text">
+                        <p>Cuci tangan dengan sabun dan air mengalir sebelum dan sesudah melakukan kegiatan</p>
+                    </div>
                 </div>
-                <div class="keterangan-statistic">
-                    <span class="title-data">Meninggal</span>
-                    <span class="data-value">0</span>
+                <div class="recommend-list">
+                    <div class="recommend-icon">
+                        <img src="/images/medical-mask.png" alt="gunakan masker saat keluar rumah">
+                    </div>
+                    <div class="recommend-text">
+                        <p>Gunakan masker sebelum keluar rumah, agar terjaga dari penyakit menular</p>
+                    </div>
+                </div>
+                <div class="recommend-list">
+                    <div class="recommend-icon">
+                        <img src="/images/keep-distance.png" alt="jaga jarak aman dengan orang lain">
+                    </div>
+                    <div class="recommend-text">
+                        <p>Jaga jarak minimal 1m untuk mengurangi resiko tertular penyakit</p>
+                    </div>
+                </div>
+                <div class="recommend-list">
+                    <div class="recommend-icon">
+                        <img src="/images/stayhome.png" alt="dirumah aja jika tidak ada kepentingan">
+                    </div>
+                    <div class="recommend-text">
+                        <p>Jika tidak ada kepentingan sebaiknya berdiam dirumah</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="content-container">
-        <center><h1 class="content-title">Statistik Virus Corona di Indonesia</h1><br><br>
-        <div id="coronaChartIndonesia-container">
-            <canvas id="coronaChartIndonesia"></canvas>
-        </div><br><br>
-    </div>
-
-    <div class="content-container">
-        <center><h1 class="content-title">Daftar Provinsi Terdampak Virus Corona Indonesia</h1></center><br><br>
-        <div class="d-flex">
-            <div class="search-container d-flex flex-row">
-                <input id="indonesia-province-search" class="form-control" placeholder="Search Here" type="text"> &nbsp;
-                <input class="btn btn-primary" type="button" value="Search">
+        <footer>
+            <div class="footer-content">
+                <center><span class="application-text">Corona Statistic</span></center>
             </div>
-        </div><br>
-        <location-table id="indonesia-province-table"></location-table>
-    </div>
-
-    <div class="content-container">
-        <center><h1 class="content-title">Daftar Negara Terdampak Corona</h1></center><br><br>
-        <div class="d-flex">
-            <div class="search-container d-flex flex-row">
-                <input id="world-country-search" class="form-control" placeholder="Search Here" type="text"> &nbsp;
-                <input class="btn btn-primary" type="button" value="Search">
+            <div class="footer-bottom">
+                <p>Developed By <span class="developer-text">ZAVIER DEVELOPER</span> 2020</p>
             </div>
-        </div><br>
-        <location-table id="world-country-table"></location-table>
-    </div>
-    <div id="recommend-action-container">
-        <center><span class="content-title">Upaya Pencegahan</span></center><br><br>
-        <div id="recommend-action">
-            <div class="recommend-list">
-                <div class="recommend-icon">
-                    <img src="/images/hand-wash.png" alt="cuci tangan dengan sabun dan air mengalir">
-                </div>
-                <div class="recommend-text">
-                    <p>Cuci tangan dengan sabun dan air mengalir sebelum dan sesudah melakukan kegiatan</p>
-                </div>
-            </div>
-            <div class="recommend-list">
-                <div class="recommend-icon">
-                    <img src="/images/medical-mask.png" alt="gunakan masker saat keluar rumah">
-                </div>
-                <div class="recommend-text">
-                    <p>Gunakan masker sebelum keluar rumah, agar terjaga dari penyakit menular</p>
-                </div>
-            </div>
-            <div class="recommend-list">
-                <div class="recommend-icon">
-                    <img src="/images/keep-distance.png" alt="jaga jarak aman dengan orang lain">
-                </div>
-                <div class="recommend-text">
-                    <p>Jaga jarak minimal 1m untuk mengurangi resiko tertular penyakit</p>
-                </div>
-            </div>
-            <div class="recommend-list">
-                <div class="recommend-icon">
-                    <img src="/images/stayhome.png" alt="dirumah aja jika tidak ada kepentingan">
-                </div>
-                <div class="recommend-text">
-                    <p>Jika tidak ada kepentingan sebaiknya berdiam dirumah</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <footer>
-        <div class="footer-content">
-            <center><span class="application-text">Corona Statistic</span></center>
-        </div>
-        <div class="footer-bottom">
-            <p>Developed By <span class="developer-text">ZAVIER DEVELOPER</span> 2020</p>
-        </div>
-    </footer>
+        </footer>
     </div>
 </body>
 </html>

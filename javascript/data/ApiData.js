@@ -32,11 +32,18 @@ class CoronaData {
    * @returns {Array}
    */
   async getWorldData () {
-    const positif = await fetch(`${this.baseurl}/positif`)
-    const sembuh = await fetch(`${this.baseurl}/sembuh`)
-    const meninggal = await fetch(`${this.baseurl}/meninggal`)
+    const response = await fetch(`${this.baseurl}/world`)
+    return response.json()
+  }
 
-    return [await positif.json(), await sembuh.json(), await meninggal.json()]
+  /**
+   * Fetch World Coronavirus data
+   * @async
+   * @returns {Object}
+   */
+  async getWorldCountryData () {
+    const response = await fetch(`${this.baseurl}/world/country`)
+    return response.json()
   }
 
   /**
@@ -55,17 +62,7 @@ class CoronaData {
    * @returns {Object}
    */
   async getIndonesiaProvinceData () {
-    const response = await fetch(`${this.baseurl}/indonesia/provinsi`)
-    return response.json()
-  }
-
-  /**
-   * Fetch World Coronavirus data
-   * @async
-   * @returns {Object}
-   */
-  async getWorldCountryData () {
-    const response = await fetch(`${this.baseurl}`)
+    const response = await fetch(`${this.baseurl}/indonesia/province`)
     return response.json()
   }
 }

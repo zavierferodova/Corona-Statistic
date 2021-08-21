@@ -22,14 +22,15 @@ async function performRegister () {
     const serviceWorkerURL = '/service-worker.js'
     const serviceWorkerIntegrity = new ServiceWorkerIntegrity()
     const isIntegritySame = await serviceWorkerIntegrity.checkIntegrity(serviceWorkerURL)
+    const oldServiceWorkerMD5 = await serviceWorkerIntegrity.getRegistrationHash()
 
-    if (!isIntegritySame) { // If integrity not same service worker was updated
+    await navigator.serviceWorker.register(serviceWorkerURL)
+    await serviceWorkerIntegrity.update(serviceWorkerURL)
+
+    if (!isIntegritySame && oldServiceWorkerMD5 !== null) { // If integrity not same service worker was updated
       alert('New update is available. Click OK to apply !')
-      await serviceWorkerIntegrity.update(serviceWorkerURL)
       window.location.reload()
     } else {
-      await navigator.serviceWorker.register(serviceWorkerURL)
-      await serviceWorkerIntegrity.update(serviceWorkerURL)
       console.log('Service Worker sucessfuly registered')
     }
   } catch (error) {
@@ -100,7 +101,7 @@ class ServiceWorkerIntegrity {
       return String(data.hash)
     }
 
-    return ''
+    return null
   }
 
   /**
@@ -112,7 +113,7 @@ class ServiceWorkerIntegrity {
     const blobResponse = await fetchBlob(swUrl)
     const newServiceWorkerMD5 = await calculateBlobMD5(blobResponse)
     const oldServiceWorkerMD5 = await this.getRegistrationHash()
-    return (newServiceWorkerMD5 === oldServiceWorkerMD5)
+    return (String(newServiceWorkerMD5) === String(oldServiceWorkerMD5))
   }
 }
 

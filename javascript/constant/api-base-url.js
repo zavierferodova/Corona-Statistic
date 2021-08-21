@@ -2,6 +2,6 @@
  * Api base url link
  * @constant
  */
-const ApiBaseUrl = 'https://cors-servza.herokuapp.com/https://api.kawalcorona.com'
+const ApiBaseUrl = 'http://localhost:3000'
 
 export default ApiBaseUrl
