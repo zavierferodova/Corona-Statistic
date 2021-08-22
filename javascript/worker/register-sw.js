@@ -21,10 +21,8 @@ function registerServiceWorker () {
 async function performRegister () {
   try {
     const serviceWorkerURL = '/service-worker.js'
-    const appServiceWorker = new Workbox('/service-worker.js')
+    const appServiceWorker = new Workbox(serviceWorkerURL)
     const serviceWorkerIntegrity = new ServiceWorkerIntegrity()
-
-    await navigator.serviceWorker.register(serviceWorkerURL)
     await serviceWorkerIntegrity.update(serviceWorkerURL)
 
     appServiceWorker.addEventListener('installed', event => {
