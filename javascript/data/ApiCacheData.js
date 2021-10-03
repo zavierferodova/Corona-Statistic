@@ -15,7 +15,8 @@ function ApiCacheData () {
     ]
 
     Promise.all(urlRequest)
-      .then(responses => responses.map(async data => await data.json()))
+      .then(responses => responses.map(data => data.json()))
+      .then(jsonPromises => Promise.all(jsonPromises))
       .then(cacheData => resolve(cacheData))
       .catch(error => {
         reject(error)

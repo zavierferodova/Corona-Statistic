@@ -24,7 +24,7 @@ precacheAndRoute([
 ], { ignoreURLParametersMatching: [/.*/] })
 
 registerRoute(
-  ({ url }) => url.href.includes(apiBaseUrl),
+  ({ url }) => url.href.includes(apiBaseUrl.origin),
   new NetworkFirst({
     cacheName: 'api-response',
     plugins: [

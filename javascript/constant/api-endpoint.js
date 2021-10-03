@@ -5,10 +5,10 @@ import ApiBaseUrl from './api-base-url'
  * @constant
  */
 const ApiEndpoint = {
-  world: `${ApiBaseUrl}/world`,
-  worldCountry: `${ApiBaseUrl}/world/country`,
-  indonesia: `${ApiBaseUrl}/indonesia`,
-  indonesiaProvince: `${ApiBaseUrl}/indonesia/province`
+  world: `${ApiBaseUrl.origin}/world`,
+  worldCountry: `${ApiBaseUrl.origin}/world/country`,
+  indonesia: `${ApiBaseUrl.origin}/indonesia`,
+  indonesiaProvince: `${ApiBaseUrl.origin}/indonesia/province`
 }
 
 export default ApiEndpoint

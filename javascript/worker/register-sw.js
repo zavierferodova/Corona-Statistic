@@ -22,8 +22,8 @@ async function performRegister () {
   try {
     const serviceWorkerURL = '/service-worker.js'
     const appServiceWorker = new Workbox(serviceWorkerURL)
-    const serviceWorkerIntegrity = new ServiceWorkerIntegrity()
-    await serviceWorkerIntegrity.update(serviceWorkerURL)
+    // const serviceWorkerIntegrity = new ServiceWorkerIntegrity()
+    // await serviceWorkerIntegrity.update(serviceWorkerURL)
 
     appServiceWorker.addEventListener('installed', event => {
       if (event.isUpdate) {
@@ -43,6 +43,7 @@ async function performRegister () {
  * This class also used for check integrity between new and old service worker
  * @class
  */
+// eslint-disable-next-line no-unused-vars
 class ServiceWorkerIntegrity {
   /**
    * Set attributes value

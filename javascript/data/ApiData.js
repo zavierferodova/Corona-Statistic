@@ -10,6 +10,7 @@ class CoronaData {
     try {
       const worldData = await this.getWorldData()
       const indonesiaData = await this.getIndonesiaData()
+      setTimeout(() => {}, 100)
       const indonesiaProvinceData = await this.getIndonesiaProvinceData()
       const worldCountryData = await this.getWorldCountryData()
 

@@ -10,7 +10,8 @@
     "start": "webpack --config webpack.prod.js && node server/index.js",
     "start-dev": "webpack-dev-server --config webpack.dev.js",
     "build": "webpack --config webpack.prod.js",
-    "server-dev": "nodemon server/index.js"
+    "server-dev": "nodemon server/index.js",
+    "server-start": "node server/index.js"
   },
   "repository": {
     "type": "git",
