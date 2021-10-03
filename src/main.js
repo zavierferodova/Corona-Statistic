@@ -1,13 +1,12 @@
-/* eslint-disable no-undef */
-import CoronaData from './data/ApiData.js'
-import ApiCacheData from './data/ApiCacheData.js'
-import registerServiceWorker from './worker/register-sw.js'
+import CoronaData from '@src/data/ApiData.js'
+import ApiCacheData from '@src/data/ApiCacheData.js'
+import registerServiceWorker from '@src/worker/register-sw.js'
 import { Chart, ArcElement, BarElement, BarController, DoughnutController, LinearScale, CategoryScale } from 'chart.js'
 import Lottie from 'lottie-web'
-import loadingAnimation from '../lottie/18469-stay-safe.json'
-import coronaAttackAnimation from '../lottie/18795-coronavirus.json'
-import './components/LocationTable.js'
-import style from '../css/style.css'
+import loadingAnimation from '@src/lottie/18469-stay-safe.json'
+import coronaAttackAnimation from '@src/lottie/18795-coronavirus.json'
+import '@src/components/LocationTable.js'
+import style from '@src/css/style.css'
 
 Chart.register(
   ArcElement,

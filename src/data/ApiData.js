@@ -1,4 +1,4 @@
-import ApiEndpoint from '../constant/api-endpoint'
+import ApiEndpoint from '@src/constant/api-endpoint'
 
 class CoronaData {
   /**
