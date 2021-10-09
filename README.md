@@ -1,14 +1,30 @@
 # Corona Statistic
-Complete Front-End and Back-End, Progressive Web Apps World and Indonesia Coronavirus (Covid-19) Cases Tracker.
+Complete Full Stack, Progressive Web Apps World and Indonesia Coronavirus (Covid-19) Cases Tracker. The application interface is use Indonesian language so you can translate it to English if needed.
 
 - API Source : [Kawal Corona](https://kawalcorona.com/api/)
+- Web Link : [https://corona-statistic.herokuapp.com/](https://corona-statistic.herokuapp.com/)
 
-**Host application**
-1. Development : `npm run start-dev`
-2. Production : `npm run start`
+## Development & Production Build
 
-**App production build** 
-- `npm run build`
+Front - End Development
+```sh
+npm run start-dev
+```
+Front - End Production Build
+```sh
+npm run build
+```
+Back - End Development
+```sh
+npm run server-dev
+```
 
-**Server back-end development** 
-- `npm run server-dev`
+## Application User Interface
+![Top](https://github.com/zavierferodova/Corona-Statistic/blob/master/screenshot/top.png?raw=true)
+<p align="center">Top</p>
+
+![Doughnut Statistic](https://github.com/zavierferodova/Corona-Statistic/blob/master/screenshot/doughnut-statistic.png?raw=true)
+<p align="center">Doughnut Statistic</p>
+
+![Prevention](https://github.com/zavierferodova/Corona-Statistic/blob/master/screenshot/prevention.png?raw=true)
+<p align="center">Prevention</p>
