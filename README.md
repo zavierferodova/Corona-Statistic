@@ -19,6 +19,12 @@ Back - End Development
 npm run server-dev
 ```
 
+## Hosting Production
+Use this command to start application on production server.
+```sh
+npm run start
+```
+
 ## Application User Interface
 ![Top](https://github.com/zavierferodova/Corona-Statistic/blob/master/screenshot/top.png?raw=true)
 <p align="center">Top</p>
