@@ -21,7 +21,7 @@ self.addEventListener('install', event => {
 
 precacheAndRoute(self.__WB_MANIFEST || [])
 precacheAndRoute([
-  { url: '/', revision: '1.1' }
+  { url: '/', revision: '1.2' }
 ], { ignoreURLParametersMatching: [/.*/] })
 
 registerRoute(

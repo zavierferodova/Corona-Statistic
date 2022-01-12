@@ -36,7 +36,7 @@ function apiRoutes (app) {
 
       if (isResponsesJSON) {
         writeStringToFile(path.join(dataDirectory, fileName), JSON.stringify(responses))
-        sendJSONFile(res, path.join(dataDirectory, fileName))
+        res.json(responses)
         return
       }
 
@@ -52,7 +52,7 @@ function apiRoutes (app) {
       const response = await axios.get(ApiEndpoint.worldCountry)
       if (response.data instanceof Object || response.data instanceof Array) {
         writeStringToFile(path.join(dataDirectory, fileName), JSON.stringify(response.data))
-        sendJSONFile(res, path.join(dataDirectory, fileName))
+        res.json(response.data)
         return
       }
 
@@ -68,7 +68,7 @@ function apiRoutes (app) {
       const response = await axios.get(ApiEndpoint.indonesia)
       if (response.data instanceof Object || response.data instanceof Array) {
         writeStringToFile(path.join(dataDirectory, fileName), JSON.stringify(response.data))
-        sendJSONFile(res, path.join(dataDirectory, fileName))
+        res.json(response.data)
         return
       }
 
@@ -84,7 +84,7 @@ function apiRoutes (app) {
       const response = await axios.get(ApiEndpoint.indonesiaProvince)
       if (response.data instanceof Object || response.data instanceof Array) {
         writeStringToFile(path.join(dataDirectory, fileName), JSON.stringify(response.data))
-        sendJSONFile(res, path.join(dataDirectory, fileName))
+        res.json(response.data)
         return
       }
 

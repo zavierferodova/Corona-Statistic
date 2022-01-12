@@ -1,4 +1,4 @@
-import CoronaData from '@src/data/ApiData.js'
+import ApiData from '@src/data/ApiData.js'
 import ApiCacheData from '@src/data/ApiCacheData.js'
 import registerServiceWorker from '@src/worker/register-sw.js'
 import { Chart, ArcElement, BarElement, BarController, DoughnutController, LinearScale, CategoryScale } from 'chart.js'
@@ -80,15 +80,10 @@ async function App () {
   /**
    * Render application with cache data
    * @async
-   * @param {CoronaData} coronaData
    */
-  const loadCacheData = async (coronaData) => {
+  const loadCacheData = async () => {
     try {
-      const cacheData = await ApiCacheData()
-      coronaData.worldData = cacheData[0]
-      coronaData.worldCountryData = cacheData[1]
-      coronaData.indonesiaData = cacheData[2]
-      coronaData.indonesiaProvinceData = cacheData[3]
+      const coronaData = await ApiCacheData()
       startRender(coronaData)
     } catch (error) {
       showErrorLoadingMessage()
@@ -98,38 +93,37 @@ async function App () {
   /**
    * Render application with api data
    * @async
-   * @param {CoronaData} coronaData
    */
-  const loadApiData = async (coronaData) => {
+  const loadApiData = async () => {
     /**
      * Handle when fetch api error
      */
     const handleError = () => {
       if ('caches' in window) {
-        loadCacheData(coronaData)
+        loadCacheData()
       } else {
         showErrorLoadingMessage()
       }
     }
 
     try {
-      await coronaData.loadData()
+      const apiData = new ApiData()
+      const coronaData = await apiData.loadData()
       startRender(coronaData)
     } catch (error) {
       handleError()
     }
   }
 
-  const coronaData = new CoronaData()
   await style.use()
   registerServiceWorker()
   showLoadingAnimation()
-  loadApiData(coronaData)
+  loadApiData()
 }
 
 /**
  * Render data to elements
- * @param {CoronaData} coronaData
+ * @param {any} coronaData
  */
 const renderData = (coronaData) => {
   const worldCoronaData = [

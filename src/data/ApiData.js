@@ -1,6 +1,17 @@
 import ApiEndpoint from '@src/constant/api-endpoint'
+import CoronaData from '@src/model/corona-data'
 
-class CoronaData {
+function resolveTimeout (callback, ms) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      callback()
+        .then(data => resolve(data))
+        .catch(error => reject(error))
+    }, ms)
+  })
+}
+
+class ApiData {
   /**
    * Fetch all data from api
    * @async
@@ -8,18 +19,19 @@ class CoronaData {
    */
   async loadData () {
     try {
-      const worldData = await this.getWorldData()
+      const worldData = await resolveTimeout(this.getWorldData, 50)
       const indonesiaData = await this.getIndonesiaData()
-      setTimeout(() => {}, 100)
-      const indonesiaProvinceData = await this.getIndonesiaProvinceData()
+      const indonesiaProvinceData = await resolveTimeout(this.getIndonesiaProvinceData, 100)
       const worldCountryData = await this.getWorldCountryData()
 
-      this.worldData = worldData
-      this.indonesiaData = indonesiaData
-      this.indonesiaProvinceData = indonesiaProvinceData
-      this.worldCountryData = worldCountryData
+      const coronaData = new CoronaData({
+        worldData,
+        indonesiaData,
+        indonesiaProvinceData,
+        worldCountryData
+      })
 
-      return 'Sucess to get api data'
+      return coronaData
     } catch (error) {
       throw new Error('Failed to get api data')
     }
@@ -66,4 +78,4 @@ class CoronaData {
   }
 }
 
-export default CoronaData
+export default ApiData

@@ -1,4 +1,5 @@
 import ApiEndpoint from '@src/constant/api-endpoint'
+import CoronaData from '@src/model/corona-data'
 
 /**
  * Get api cache data
@@ -17,7 +18,15 @@ function ApiCacheData () {
     Promise.all(urlRequest)
       .then(responses => responses.map(data => data.json()))
       .then(jsonPromises => Promise.all(jsonPromises))
-      .then(cacheData => resolve(cacheData))
+      .then(cacheData => {
+        const coronaData = new CoronaData({
+          worldData: cacheData[0],
+          worldCountryData: cacheData[1],
+          indonesiaData: cacheData[2],
+          indonesiaProvinceData: cacheData[3]
+        })
+        resolve(coronaData)
+      })
       .catch(error => {
         reject(error)
       })
