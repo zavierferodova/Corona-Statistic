@@ -1,6 +1,9 @@
 import ApiEndpoint from '@src/constant/api-endpoint'
 import CoronaData from '@src/model/corona-data'
 
+/**
+ * Resolve promise with timeout
+ */
 function resolveTimeout (callback, ms) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
