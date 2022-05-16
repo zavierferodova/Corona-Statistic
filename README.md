@@ -4,6 +4,9 @@ Complete Full Stack, Progressive Web Apps World and Indonesia Coronavirus (Covid
 - API Source : [Kawal Corona](https://kawalcorona.com/api/)
 - Web Link : [https://corona-statistic.herokuapp.com/](https://corona-statistic.herokuapp.com/)
 
+**(Note) Update 2022**  
+_This application data is not accurate because an official site that is used for this app data is closed. Data on this application is lastest fetched data from the back - end before the official site closed._
+
 ## Development & Production Build
 
 Front - End Development
