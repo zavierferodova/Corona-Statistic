@@ -2,7 +2,6 @@
 Complete Full Stack, Progressive Web Apps World and Indonesia Coronavirus (Covid-19) Cases Tracker. The application interface is use Indonesian language so you can translate it to English if needed.
 
 - API Source : [Kawal Corona](https://kawalcorona.com/api/)
-- Web Link : [https://corona-statistic.herokuapp.com/](https://corona-statistic.herokuapp.com/)
 
 **(Note) Update 2022**  
 _This application data is not accurate because an official site that is used for this app data is closed. Data on this application is lastest fetched data from the back - end before the official site closed._
