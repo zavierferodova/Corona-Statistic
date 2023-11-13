@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "Web Coronavirus Case Tracker",
   "main": "index.js",
-  "engines": {
-    "node": "16.x"
-  },
   "scripts": {
     "start": "webpack --config webpack.prod.js && node server/index.js",
     "start-dev": "webpack-dev-server --config webpack.dev.js",
