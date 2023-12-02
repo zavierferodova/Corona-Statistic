@@ -1,6 +1,5 @@
 const path = require('path')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
-const { InjectManifest } = require('workbox-webpack-plugin')
 
 module.exports = {
   resolve: {
@@ -24,12 +23,6 @@ module.exports = {
           to: path.resolve(__dirname, 'build/')
         }
       ]
-    }),
-    new InjectManifest({
-      swSrc: path.resolve(__dirname, 'src/worker/service-worker.js'),
-      swDest: 'service-worker.js',
-      maximumFileSizeToCacheInBytes: 4000000, // 4 MB
-      exclude: [/server\.js$/]
     })
   ]
 }

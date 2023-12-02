@@ -250,10 +250,12 @@ function renderIndonesiaProvinceChart (indonesiaProvinceData) {
   const barChartIndonesiaProvince = getBarIndonesiaProvinceChart()
   const listprovinsi = []
   const listvalueprovinsi = []
-  indonesiaProvinceData.forEach(object => {
+
+  for (let i = 0; i < 8; i++) {
+    const object = indonesiaProvinceData[i]
     listprovinsi.push(object.attributes.Provinsi)
     listvalueprovinsi.push(object.attributes.Kasus_Posi)
-  })
+  }
 
   barChartIndonesiaProvince.data.labels = listprovinsi
   barChartIndonesiaProvince.data.datasets[0].data = listvalueprovinsi

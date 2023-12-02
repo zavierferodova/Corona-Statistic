@@ -7,10 +7,12 @@ import { Workbox } from 'workbox-window'
  * @function
  */
 function registerServiceWorker () {
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', performRegister)
-  } else {
-    console.log("This browser doesn't support service worker")
+  if (process.env.NODE_ENV === 'production') {
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', performRegister)
+    } else {
+      console.log("This browser doesn't support service worker")
+    }
   }
 }
 
